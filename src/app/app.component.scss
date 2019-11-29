@@ -1,0 +1,38 @@
+/* Header */
+
+.navbar {
+  border-bottom: 1px solid #000;
+}
+
+.nav__logo--text {
+  font-size: 2em;
+  padding-left: 12px;
+}
+
+.nav-link:active,
+.nav-link:hover{
+  background: dodgerblue;
+  border-color: dodgerblue;
+  color: white !important;
+}
+
+#navbarNavAltMarkup {
+  justify-content: flex-end;
+}
+
+.nav-item,
+.nav-link {
+  border: 1px solid #000;
+  padding: 0.3em 5em !important;
+}
+
+/* Footer */
+
+.footer {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 0.8em;
+  margin: 1.5em 0;
+}
+
+

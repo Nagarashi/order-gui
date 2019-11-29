@@ -1,0 +1,10 @@
+<div id="sarch-component">
+  <label for="search-box"></label>
+  <input #searchBox id="search-box" placeholder="Filter by name..." (input)="search(searchBox.value)"/>
+
+  <ul class="search-result">
+    <li *ngFor="let item of filteredItems">
+        {{item.name}}
+    </li>
+  </ul>
+</div>
