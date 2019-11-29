@@ -1,16 +1,17 @@
-<h3 class="items__header">Items</h3> <app-item-search></app-item-search>
+<h3 class="items__header">Items</h3>
+<app-item-search [allItems]="items" (filteredItems)="filteredItems = $event"></app-item-search>
 <div class="container-fluid">
-  <ul class="items row">
-    <li class="col-lg-4 col-md-6 col-sm-12 card item" *ngFor="let item of items">
+  <ul class="items row" *ngIf="items">
+    <li class="col-lg-4 col-md-6 col-sm-12 card item" *ngFor="let item of filteredItems">
       <div class="card-body">
         <h5 class="card-title item__title">{{item.name}}</h5>
-        <img src="https://via.placeholder.com/150 " class="card-img-top item__img" alt="placeholder">
+        <img src="https://via.placeholder.com/150" class="card-img-top item__img" alt="placeholder">
         <span class="card-text item__price">Price: €{{item.price}}</span>
         <span class="card-text item__urgency ">{{item.stockUrgency.split('_')[1]}}
           <i [ngStyle]="{'color':
-        item.stockUrgency.indexOf('LOW') >= 0 ? 'forestgreen' :
+        item.stockUrgency.indexOf('LOW') >= 0 ? 'tomato' :
         item.stockUrgency.indexOf('MEDIUM') >= 0 ? '#ffc715' :
-        item.stockUrgency.indexOf('HIGH') >= 0 ? 'tomato' : null}" class="fas fa-flag"></i></span>
+        item.stockUrgency.indexOf('HIGH') >= 0 ? 'forestgreen' : null}" class="fas fa-flag"></i></span>
       </div>
     </li>
   </ul>

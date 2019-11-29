@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Item} from '../item';
-import {ItemService} from '../item.service';
-import {debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-search',
@@ -10,18 +7,24 @@ import {debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators
   styleUrls: ['./item-search.component.scss']
 })
 export class ItemSearchComponent implements OnInit {
-  private allItems: Item[];
-  filteredItems: Item[];
 
-  constructor(private itemService: ItemService) {
+  @Input()
+  allItems: Item[];
+
+  @Output()
+  filteredItems = new EventEmitter<Item[]>();
+
+  constructor() {
   }
 
-  search(term: string): void {
-    this.filteredItems = this.itemService.searchItems(this.allItems, term);
+  ngOnInit() {
   }
 
-  ngOnInit(): void {
-    this.itemService.getItems().subscribe(items => this.allItems = items);
+  searchItems(term: string) {
+    if (!term.trim()) {
+      this.filteredItems.emit(this.allItems);
+    } else {
+      this.filteredItems.emit(this.allItems.filter(item => item.name.toLowerCase().includes(term.toLowerCase())));
+    }
   }
-
 }

@@ -21,10 +21,10 @@ export class ItemService {
       return this.http.get<Item[]>(this.itemUrl);
   }
 
-  searchItems(items: Item[], term: string): Item[] {
+ /* searchItems(items: Item[], term: string): Item[] {
     if (!term.trim()) {
       return [];
     }
     return items.filter(item => item.name.toLowerCase().includes(term.toLowerCase()));
-  }
+  }*/
 }

@@ -9,6 +9,7 @@ import { ItemService } from '../item.service';
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
+  filteredItems: Item[];
 
   constructor(private itemService: ItemService) { }
 
@@ -20,6 +21,7 @@ export class ItemsComponent implements OnInit {
     this.itemService.getItems().subscribe(items => {
       console.log(items);
       this.items = items;
+      this.filteredItems = items;
     });
   }
 }
