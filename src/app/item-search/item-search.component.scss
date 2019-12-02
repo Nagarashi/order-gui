@@ -1,0 +1,19 @@
+.search__wrapper input[type="text"] {
+  position: relative;
+}
+
+input {
+  font-family: 'FontAwesome', serif;
+}
+
+.search__wrapper::before {
+  font-family: 'FontAwesome', serif;
+  color: dodgerblue;
+  position: relative;
+  left: 90%;
+  content: "\f002";
+}
+
+#search-box {
+  padding: 0.5em;
+}

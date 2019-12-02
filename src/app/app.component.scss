@@ -1,12 +1,15 @@
 /* Header */
 
+nav.navbar {
+  padding: 0.5rem 0;
+}
+
 .navbar {
   border-bottom: 1px solid #000;
 }
 
 .nav__logo--text {
   font-size: 2em;
-  padding-left: 12px;
 }
 
 .nav-link:active,

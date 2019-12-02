@@ -1,0 +1,40 @@
+/* Form */
+
+label,
+span {
+  width: 100%;
+  font-size: 1.15rem;
+  color: #a6adb4;
+}
+
+.form__input--numeric {
+  margin-bottom: 10px;
+  display: flex;
+  width: calc(100% /2);
+}
+
+.price__icons {
+  font-family: FontAwesome, Arial, serif;
+
+}
+
+/* Buttons */
+
+.form__buttons > .btn {
+  padding: 0.75rem 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.btn-create {
+  color: #fff;
+  background-color: rgb(51, 158, 0);
+  margin-right: calc(100% / 43);
+}
+
+.btn-cancel {
+  border: 1px solid black;
+  width: calc(100% / 7);
+  background-color: #dde5ef;
+}

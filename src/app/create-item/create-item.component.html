@@ -1,0 +1,42 @@
+<div class="create items__header">
+  <h3 class="create items__header--title">Create Item</h3>
+</div>
+<button class="btn btn-primary my-3" (click)="goBack()">Back</button>
+<form class="form-group" [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" class="form-control" formControlName="name" required>
+  </label>
+
+  <div>
+    <label for="description">
+      Description:
+      <textarea type="text" class="form-control" id="description" rows="5" maxlength="255" formControlName="description" required></textarea>
+      <app-character-counter [input]="255 - createForm.get('description').value.length"></app-character-counter>
+    </label>
+  </div>
+
+
+  <div class="form__input--numeric">
+    <div class="form-inline">
+      <span>Price:</span>
+      <label class="mr-5 mb-2">
+        <select class="price__icons form-control">
+          <option value="euro" class="price__icons--euro">&#xf153;</option>
+          <option value="dollar" class="price__icons--dollar">&#xf155;</option>
+          <option value="yen" class="price__icons--yen">&#xf157;</option>
+        </select>
+        <input type="number" class="form-control" formControlName="price" required >
+      </label>
+    </div>
+    <label>
+      Amount of Stock:
+      <input type="number"  class="form-control" formControlName="amountOfStock" required>
+    </label>
+  </div>
+
+  <div class="form__buttons">
+    <button class="btn btn-create col-lg-10 col-md-10" type="submit" [ngStyle]="{'cursor' : !createForm.valid ? 'default' : 'pointer'}" [disabled]="!createForm.valid">CREATE</button>
+    <button class="btn btn-cancel col-lg-2 col-md-2" type="button" (click)="reset()" routerLink="/items">CANCEL</button>
+  </div>
+</form>

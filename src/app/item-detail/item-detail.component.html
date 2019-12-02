@@ -1,0 +1,8 @@
+<div class="item__detail items__header">
+  <h3 class="item__detail items__header--title">Item</h3><div><span>id: </span>{{item.id}}</div>
+</div>
+
+<div *ngIf="item"></div>
+
+<button (click)="edit()">Edit</button>
+<button (click)="goBack()">Back</button>
