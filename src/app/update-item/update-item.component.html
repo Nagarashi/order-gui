@@ -1,0 +1,39 @@
+<div *ngIf="item" class="item__update items__header">
+  <h3 class="item__update items__header--title">Item <span>{{item.id}}</span></h3>
+</div>
+
+<form *ngIf="item" class="form-group item__update--main" [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" class="form-control" formControlName="name" required>
+  </label>
+
+  <div>
+    <label for="description">
+      Description:
+      <textarea class="form-control" id="description" rows="5" maxlength="255" formControlName="description"
+                required>test</textarea>
+      <app-character-counter [input]="255 - createForm.get('description').value.length"></app-character-counter>
+    </label>
+  </div>
+
+  <div class="form__input--numeric">
+    <div class="form-inline">
+      <span>Price:</span>
+      <label class="mr-5 mb-2 price__icons--euro">
+        <input type="number" min="0" step=".01" class="form-control" formControlName="price" required>
+      </label>
+    </div>
+    <label>
+      Amount of Stock:
+      <input type="number" min="0" step="0" class="form-control" formControlName="amountOfStock" required>
+    </label>
+  </div>
+
+  <div class="form__buttons">
+    <button class="btn btn-create col-lg-10 col-md-10" type="submit"
+            [ngStyle]="{'cursor' : !createForm.valid ? 'default' : 'pointer'}" [disabled]="!createForm.valid">UPDATE
+    </button>
+    <button class="btn btn-cancel col-lg-2 col-md-2" type="button" (click)="reset()" routerLink="/items">CANCEL</button>
+  </div>
+</form>

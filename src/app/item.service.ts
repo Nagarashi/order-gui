@@ -22,7 +22,7 @@ export class ItemService {
   }
 
   /** GET item by id  */
-  getItem(id: number): Observable<Item> {
+  getItem(id: string): Observable<Item> {
     const url = `${this.itemUrl}/${id}`;
     return this.http.get<Item>(url);
   }
@@ -30,5 +30,10 @@ export class ItemService {
   /** POST: add a new item to the server */
   addItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.itemUrl, item, this.httpOptions);
+  }
+
+  /** Put: update the item on the server */
+  updateItem(item: Item): Observable <Item> {
+    return this.http.put<Item>(`${this.itemUrl}/${item.id}`, item, this.httpOptions);
   }
 }

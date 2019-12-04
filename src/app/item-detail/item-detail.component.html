@@ -1,8 +1,36 @@
-<div class="item__detail items__header">
-  <h3 class="item__detail items__header--title">Item</h3><div><span>id: </span>{{item.id}}</div>
+<div *ngIf="item" class="item__detail items__header">
+  <h3 class="item__detail items__header--title">Item <span>{{item.id}}</span></h3>
 </div>
 
-<div *ngIf="item"></div>
+<div *ngIf="item" class="form-group item__detail--main">
+  <label>
+    Name:
+    <input type="text" class="form-control" placeholder={{item.name}} readonly>
+  </label>
 
-<button (click)="edit()">Edit</button>
-<button (click)="goBack()">Back</button>
+  <div>
+    <label for="description">
+      Description:
+      <textarea class="form-control" id="description" rows="5" placeholder={{item.description}} readonly></textarea>
+    </label>
+  </div>
+
+  <div class="form__input--numeric">
+    <div class="form-inline">
+      <span>Price:</span>
+      <label class="mr-5 mb-2 price__icons--euro">
+        <input type="number" min="0" step=".01" class="form-control" placeholder={{item.price}} readonly>
+      </label>
+    </div>
+    <label>
+      Amount of Stock:
+      <input type="number" min="0" step="0" class="form-control" placeholder={{item.amountOfStock}} readonly>
+    </label>
+  </div>
+
+  <div class="form__buttons flex">
+    <button class="btn btn-edit" type="button" routerLink="/items/{{item.id}}/edit">Edit</button>
+    <button class="btn btn-back" type="button" routerLink="/items">Back</button>
+  </div>
+</div>
+

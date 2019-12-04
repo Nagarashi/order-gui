@@ -11,6 +11,7 @@ import { ItemSearchComponent } from './item-search/item-search.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { CharacterCounterComponent } from './character-counter/character-counter.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     ItemSearchComponent,
     CreateItemComponent,
     CharacterCounterComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,
